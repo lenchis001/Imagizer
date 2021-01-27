@@ -117,10 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ENCRYPTION_KEY" xml:space="preserve">
-    <value>kIFlEHnikO7DjQvoXe7k5eM6ePE7UTjL+a2T6LZOCDk=</value>
-  </data>
-  <data name="IV" xml:space="preserve">
-    <value>9fTMHqRCZlHSH58kQVAW2A==</value>
+  <data name="STORAGE_PATH_ENVIRONMENT_VARIABLE_NAME" xml:space="preserve">
+    <value>STORAGE_PATH</value>
   </data>
 </root>

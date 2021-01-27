@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Imagizer.BLL {
+namespace Imagizer.DAL {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Imagizer.BLL {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Imagizer.BLL.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Imagizer.DAL.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,20 +61,11 @@ namespace Imagizer.BLL {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to kIFlEHnikO7DjQvoXe7k5eM6ePE7UTjL+a2T6LZOCDk=.
+        ///   Looks up a localized string similar to STORAGE_PATH.
         /// </summary>
-        internal static string ENCRYPTION_KEY {
+        internal static string STORAGE_PATH_ENVIRONMENT_VARIABLE_NAME {
             get {
-                return ResourceManager.GetString("ENCRYPTION_KEY", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 9fTMHqRCZlHSH58kQVAW2A==.
-        /// </summary>
-        internal static string IV {
-            get {
-                return ResourceManager.GetString("IV", resourceCulture);
+                return ResourceManager.GetString("STORAGE_PATH_ENVIRONMENT_VARIABLE_NAME", resourceCulture);
             }
         }
     }

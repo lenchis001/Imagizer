@@ -1,4 +1,4 @@
-﻿namespace Imagizer.DAL.Models
+﻿namespace Imagizer.BLL.Models.Images
 {
 	public class Image
 	{
