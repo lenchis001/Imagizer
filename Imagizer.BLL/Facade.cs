@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Imagizer.BLL.Models.Images;
+using Imagizer.BLL.Services;
 using Unity;
 
 namespace Imagizer.BLL
@@ -9,16 +11,15 @@ namespace Imagizer.BLL
 		{
 			DAL.Facade.SetupDependencies(container);
 
-			//container.RegisterSingleton<IUserService, UserService>();
+			container.RegisterSingleton<IImageService, ImageService>();
+			container.RegisterSingleton<IFileMetadataService, FileMetadataService>();
 		}
 
 		public static void RegisterMappings(IMapperConfigurationExpression cfg)
 		{
-			//cfg.CreateMap<DAL.Models.User, User>().ReverseMap();
-			//cfg.CreateMap<AddUserData, DAL.Models.User>()
-			//	.ForMember(opt => opt.ApiKey, config => config.Ignore())
-			//	.ForMember(opt => opt.Id, config => config.Ignore())
-			//	.ForMember(opt => opt.Images, config => config.Ignore());
+			cfg.CreateMap<DAL.Models.Image, Image>();
+			cfg.CreateMap<DAL.Models.DeleteErrorCode, DeleteErrorCode>();
+			cfg.CreateMap<AddImageData, DAL.Models.AddImageData>();
 		}
 	}
 }

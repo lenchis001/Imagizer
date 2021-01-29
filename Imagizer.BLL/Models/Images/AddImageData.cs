@@ -2,6 +2,8 @@
 {
 	public class AddImageData
 	{
-		public string Data { get; set; }
+		public string Extention { get; set; }
+
+		public byte[] Data { get; set; }
 	}
 }

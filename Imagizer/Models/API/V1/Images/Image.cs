@@ -1,4 +1,4 @@
-﻿namespace Imagizer.BLL.Models.Images
+﻿namespace Imagizer.Models.API.V1.Images
 {
 	public class Image
 	{

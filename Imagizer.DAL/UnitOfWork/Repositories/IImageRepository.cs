@@ -1,14 +1,13 @@
 ﻿using Imagizer.DAL.Models;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Imagizer.DAL.UnitOfWork.Repositories
 {
 	public interface IImageRepository
 	{
-		Task<ICollection<Image>> GetAllAsync();
+		Task<Image> GetAsync(string name);
 
-		Task<DeleteErrorCode> DeleteAsync(Image image);
+		Task<DeleteErrorCode> DeleteAsync(string name);
 
 		Task<Image> AddAsync(AddImageData data);
 	}

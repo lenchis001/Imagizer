@@ -12,8 +12,4 @@
     <ProjectReference Include="..\Imagizer.DAL\Imagizer.DAL.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
-
 </Project>

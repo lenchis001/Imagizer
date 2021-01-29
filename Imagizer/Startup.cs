@@ -1,15 +1,13 @@
+using AutoMapper;
+using AutoMapper.Extensions.EnumMapping;
+using Imagizer.Middleware;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Unity;
 
 namespace Imagizer
 {
@@ -45,12 +43,40 @@ namespace Imagizer
 
 			app.UseRouting();
 
+			app.UseMiddleware(typeof(ApiKeyMiddleware));
 			app.UseAuthorization();
 
 			app.UseEndpoints(endpoints =>
 			{
 				endpoints.MapControllers();
 			});
+		}
+
+		public void ConfigureContainer(IUnityContainer container)
+		{
+			BLL.Facade.SetupDependencies(container);
+
+			container.RegisterInstance(SetupMapper());
+		}
+
+		private IMapper SetupMapper()
+		{
+			MapperConfiguration config = new MapperConfiguration(cfg => RegisterMappings(cfg));
+
+			config.AssertConfigurationIsValid();
+
+			return new Mapper(config);
+		}
+
+		private void RegisterMappings(IMapperConfigurationExpression mapperConfiguration)
+		{
+			mapperConfiguration.EnableEnumMappingValidation();
+
+			BLL.Facade.RegisterMappings(mapperConfiguration);
+
+			mapperConfiguration.CreateMap<BLL.Models.Images.Image, Models.API.V1.Images.Image>();
+			mapperConfiguration.CreateMap<BLL.Models.Images.DeleteErrorCode, Models.API.V1.Images.DeleteErrorCode>();
+			mapperConfiguration.CreateMap<Models.API.V1.Images.AddImageData, BLL.Models.Images.AddImageData>();
 		}
 	}
 }

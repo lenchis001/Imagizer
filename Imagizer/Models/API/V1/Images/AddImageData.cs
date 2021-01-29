@@ -1,4 +1,4 @@
-﻿namespace Imagizer.DAL.Models
+﻿namespace Imagizer.Models.API.V1.Images
 {
 	public class AddImageData
 	{
