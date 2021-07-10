@@ -2,29 +2,16 @@
 {
 	class FileMetadataService : IFileMetadataService
 	{
-		private const string IMAGE_JPEG_CONTENT_TYPE = "image/jpeg";
-		private const string JPEG_EXTENTION = ".jpeg";
+		private const string MIME_TYPE_PREFIX = "image/";
 
 		public string GetContentTypeByExtention(string extention)
 		{
-			switch (extention)
-			{
-				case JPEG_EXTENTION:
-					return IMAGE_JPEG_CONTENT_TYPE;
-				default:
-					return null;
-			}
+			return MIME_TYPE_PREFIX + extention.Substring(1);
 		}
 
 		public string GetExtentionByContentType(string contentType)
 		{
-			switch (contentType)
-			{
-				case IMAGE_JPEG_CONTENT_TYPE:
-					return JPEG_EXTENTION;
-				default:
-					return null;
-			}
+			return contentType.StartsWith(MIME_TYPE_PREFIX) ? $".{contentType.Replace(MIME_TYPE_PREFIX, string.Empty)}" : null;
 		}
 	}
 }
